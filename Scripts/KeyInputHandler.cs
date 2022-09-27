@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 
 [CreateAssetMenu(fileName = "InputKeybinds", menuName = "CustomStuff/Inputkeybinds", order = 1)]
-public class CustomKeyInputs : ScriptableObject
+public class KeyInputHandler : ScriptableObject
 {
     public List<string> movement;
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ec44fc8a8c44634f8496442ac9379a5, type: 3}
-  m_Name: What
+  m_Name: TestObject
   m_EditorClassIdentifier: 
   characterName: Hans Sama
   characterObject: {fileID: 3976412099937071749, guid: 42402d579ba3ff94dbd8fa51ccd5db9b, type: 3}

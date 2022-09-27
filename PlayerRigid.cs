@@ -18,15 +18,19 @@ public class PlayerRigid : RegisterInputs
 
     private void FixedUpdate()
     {
-        Vector3 dir = transform.forward * MoveDir.z;
+        Vector3 dirFront = transform.forward * MoveDir.z;
+        Vector3 dirSide = transform.right * MoveDir.x;
+        Vector3 dir = dirFront - dirSide; 
 
         rigid.AddForce(dir * speed, forceMode);
 
+        /*
         if (MoveDir.x != 0)
         {
             currentRotation = transform.rotation.y;
             currentRotation += Mathf.RoundToInt(MoveDir.x * rotSpeed);
             rigid.rotation *= Quaternion.Euler(transform.rotation.x, currentRotation, transform.rotation.z);
         }
+        */
     }
 }
