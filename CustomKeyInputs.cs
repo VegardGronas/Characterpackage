@@ -39,6 +39,7 @@ public class RegisterInputs : MonoBehaviour
     private void OnDisable()
     {
         movement.performed -= MoveCharacter;
+        movement.canceled -= MoveCharacter;
         escape.performed -= Escape;
     }
 
