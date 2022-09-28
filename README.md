@@ -13,3 +13,8 @@
 
  * Player Normal
   * Movement based on normal transform (Not finished)
+
+
+
+  _______________
+  Functionality is set up in the testing scene
