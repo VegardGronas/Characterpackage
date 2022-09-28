@@ -1,0 +1,7 @@
+28.09.22
+
+- Added third person camera functionality
+	- Rotating relative to a parent object
+	- Scrolling using moveTowards with scrolling input (Clamped)
+
+- Improved player rigid script
