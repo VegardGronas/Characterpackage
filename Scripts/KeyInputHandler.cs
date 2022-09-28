@@ -17,6 +17,8 @@ public class RegisterInputs : MonoBehaviour
     private InputAction movement, escape, space, interact;
 
     public Vector3 MoveDir { get; private set; }
+    public bool Jump { get; private set; }
+    public bool Grounded { get; private set; }
 
     private void Awake()
     {
@@ -29,7 +31,6 @@ public class RegisterInputs : MonoBehaviour
         movement.performed += MoveCharacter;
         movement.canceled += MoveCharacter;
         space.performed += Space;
-        space.canceled += Space;
 
         //WITHOUT CANCEL
         escape.performed += Escape;
@@ -40,6 +41,7 @@ public class RegisterInputs : MonoBehaviour
     {
         movement.performed -= MoveCharacter;
         movement.canceled -= MoveCharacter;
+        space.performed -= Space;
         escape.performed -= Escape;
     }
 
@@ -56,10 +58,28 @@ public class RegisterInputs : MonoBehaviour
 
     public void Space(InputAction.CallbackContext context)
     {
-        
+        if (Grounded)
+        {
+            Jump = true;
+        }
+        else
+        {
+            Jump = false;
+        }
     }
     public void Interact(InputAction.CallbackContext context)
     {
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Grounded = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Grounded = false;
+        Jump = false; 
     }
 }
