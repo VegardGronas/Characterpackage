@@ -15,13 +15,11 @@ public class RegisterInputs : MonoBehaviour
     public InputActionAsset asset;
     public GameObject pauseMenu;
     private InputAction movement, escape, space, interact, mousePos, scroll;
-
     public Vector3 MoveDir { get; private set; }
     public Vector2 GetMousePos { get; private set; }
     public bool Jump { get; private set; }
     public bool Grounded { get; private set; }
     public float GetScroll { get; private set; }
-
     private void Awake()
     {
         movement = asset.FindAction("Movement");
@@ -44,7 +42,6 @@ public class RegisterInputs : MonoBehaviour
         escape.performed += Escape;
         interact.performed += Interact;
     }
-
     private void OnDisable()
     {
         movement.performed -= MoveCharacter;
@@ -53,18 +50,15 @@ public class RegisterInputs : MonoBehaviour
         escape.performed -= Escape;
         mousePos.performed -= MousePos;
     }
-
     public void MoveCharacter(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
         MoveDir = new Vector3(dir.x, 0, dir.y);
     }
-
     public void Escape(InputAction.CallbackContext context)
     {
         pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
     }
-
     public void Space(InputAction.CallbackContext context)
     {
         if (Grounded)
@@ -80,22 +74,18 @@ public class RegisterInputs : MonoBehaviour
     {
 
     }
-
     public void MousePos(InputAction.CallbackContext context)
     {
         GetMousePos = context.ReadValue<Vector2>();
     }
-
     public void ScrollWheel(InputAction.CallbackContext context)
     {
         GetScroll = context.ReadValue<float>();
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         Grounded = true;
     }
-
     private void OnCollisionExit(Collision collision)
     {
         Grounded = false;
